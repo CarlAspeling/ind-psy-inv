@@ -28,14 +28,14 @@ Description: This app enables users to complete industrial psychology-related in
 
 ## Installation
 1. Clone the repository to your local environment
-2. Copy the .env.example file and edit it accordingly. 
-3. Run './vendor/bin/sail up -d'
-4. Run './vendor/bin/sail composer install'
-5. Run './vendor/bin/sail artisan: key:generate'
-6. Run './vendor/bin/sail artisan migrate'
-7. Run './vendor/bin/sail artisan db:seed'
-8. Run './vendor/bin/sail npm install'
-9. Run './vendor/bin/sail npm run dev'
+2. Run `cp .env.example .env` and edit the copied .env file accordingly. 
+3. Run `./vendor/bin/sail up -d`
+4. Run `./vendor/bin/sail composer install`
+5. Run `./vendor/bin/sail artisan: key:generate`
+6. Run `./vendor/bin/sail artisan migrate`
+7. Run `./vendor/bin/sail artisan db:seed`
+8. Run `./vendor/bin/sail npm install`
+9. Run `./vendor/bin/sail npm run dev`
 
 ---
 
