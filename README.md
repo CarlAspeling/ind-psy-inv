@@ -1,7 +1,6 @@
 # Industrial Psychology Inventories
 
-Description: This app enables users to complete industrial psychology-related inventories (questionnaires) and to see their
-                results contextualised to a relevant domain (e.g., career interests, personality). 
+Description: This app enables users to complete industrial psychology-related inventories (questionnaires) and to see their results contextualised to a relevant domain (e.g., career interests, personality). 
 
 ## Tech Stack
 -> **Laravel 12**
