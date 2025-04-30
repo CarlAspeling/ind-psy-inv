@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('responses', function (Blueprint $table) {
+        Schema::create('response_options', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('questionnaire_attempt_id');
-            $table->foreignId('question_id');
-            $table->foreignId('response_option_id');
+            $table->foreignId('response_set_id');
+            $table->integer('value');
+            $table->string('label');
+            $table->integer('order')
+                ->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('responses');
+        Schema::dropIfExists('response_options');
     }
 };

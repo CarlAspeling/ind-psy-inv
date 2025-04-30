@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Filament\Models\Contracts\HasCurrentTenantLabel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,13 +14,22 @@ class Response extends Model
     use SoftDeletes;
     protected $guarded = [];
 
-    public function questions(): BelongsTo
+    public function question(): BelongsTo
     {
         return $this->belongsTo(Question::class);
     }
 
-    public function questionnaires(): BelongsTo
+    public function attempt(): BelongsTo
     {
-        return $this->belongsTo(Questionnaire::class);
+        return $this->belongsTo(QuestionnaireAttempt::class);
     }
+
+    public function option(): BelongsTo
+    {
+        return $this->belongsTo(ResponseOption::class);
+    }
+//    public function questionnaires(): BelongsTo
+//    {
+//        return $this->belongsTo(Questionnaire::class);
+//    }
 }

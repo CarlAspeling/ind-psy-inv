@@ -13,13 +13,9 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('questionnaire_id')
-                ->constrained()
-                ->onDelete('cascade');
+            $table->foreignId('questionnaire_id');
+            $table->foreignId('response_set_id');
             $table->string('question_text');
-            $table->text('description')->nullable();
-            $table->string('input_type')->default('radio');
-            $table->json('options')->nullable();
             $table->string('domain')->nullable();
             $table->timestamps();
             $table->softDeletes();

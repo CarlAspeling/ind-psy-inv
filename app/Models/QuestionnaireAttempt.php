@@ -8,31 +8,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Question extends Model
+class QuestionnaireAttempt extends Model
 {
+    use hasfactory;
     use softDeletes;
-    use HasFactory;
     protected $guarded = [];
-    protected $casts = [
-        'options' => 'array',
-    ];
-
-    public function responses(): HasMany
-    {
-        return $this->hasMany(Response::class);
-    }
 
     public function questionnaire(): BelongsTo
     {
         return $this->belongsTo(Questionnaire::class);
     }
 
-    public function responseSet(): belongsTo
+    public function responses(): hasMany
     {
-        return $this->belongsTo(ResponseSet::class);
+        return $this->hasMany(Response::class);
     }
-//    public function options(): HasMany
-//    {
-//        return $this->hasMany(Option::class);
-//    }
 }

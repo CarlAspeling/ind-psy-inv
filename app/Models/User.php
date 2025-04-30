@@ -48,8 +48,8 @@ class User extends Authenticatable
         ];
     }
 
-    public function questionnaires(): BelongsToMany
-    {
-        return $this->belongsToMany(Questionnaire::class);
-    }
+//    public function questionnaires(): BelongsToMany
+//    {
+//        return $this->belongsToMany(Questionnaire::class);
+//    }
 }

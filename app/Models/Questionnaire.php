@@ -21,13 +21,17 @@ class Questionnaire extends Model
         return $this->hasMany(Question::class);
     }
 
-    public function responses(): HasMany
+    public function attempts(): HasMany
     {
-        return $this->hasMany(Response::class);
+        return $this->hasMany(QuestionnaireAttempt::class);
     }
-
-    public function users(): BelongsToMany
-    {
-        return $this->belongsToMany(User::class);
-    }
+//    public function responses(): HasMany
+//    {
+//        return $this->hasMany(Response::class);
+//    }
+//
+//    public function users(): BelongsToMany
+//    {
+//        return $this->belongsToMany(User::class);
+//    }
 }
