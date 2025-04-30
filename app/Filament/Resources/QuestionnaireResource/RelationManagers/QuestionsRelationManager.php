@@ -27,16 +27,8 @@ class QuestionsRelationManager extends RelationManager
         return $form
             ->schema([
                 TextInput::make('question_text'),
+                TextInput::make('description'),
                 TextInput::make('domain'),
-                Repeater::make('options')
-                    ->label('Options')
-                    ->schema([
-                        TextInput::make('value')
-                            ->label('Option'),
-                    ])
-                    ->minItems(2)
-                    ->required()
-                    ->columns(1),
             ]);
     }
 
@@ -46,6 +38,7 @@ class QuestionsRelationManager extends RelationManager
             ->recordTitleAttribute('questions')
             ->columns([
                 TextColumn::make('question_text'),
+                TextColumn::make('description'),
                 TextColumn::make('domain'),
             ])
             ->filters([

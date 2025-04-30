@@ -44,16 +44,6 @@ class QuestionResource extends Resource
                     ->required(),
                 TextInput::make('domain')
                     ->label('Domain'),
-                Repeater::make('options')
-                    ->relationship('options')
-                    ->label('Options')
-                    ->schema([
-                        TextInput::make('option')
-                            ->label('Option'),
-                    ])
-                    ->minItems(2)
-                    ->required()
-                    ->columns(1),
             ]);
     }
 
