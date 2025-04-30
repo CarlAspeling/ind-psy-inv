@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 
 class QuestionnaireController extends Controller
 {
-    public function fetch()
+    public function show()
     {
-        return response()->json([
-            'message' => 'This is data from Laravel API'
-        ]);
+        return response()->json(
+            Questionnaire::with('questions')->findOrFail(1)
+        );
     }
 //    public function show($id)
 //    {
@@ -35,7 +35,5 @@ class QuestionnaireController extends Controller
 //        ]);
 //    }
 
-public function show(){
-        dd("I'm here");
-}
+
 }

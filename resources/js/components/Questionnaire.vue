@@ -1,44 +1,30 @@
 <script setup>
-
 import { ref, onMounted } from 'vue'
-import axios from "axios";
 
-import QuestionnaireIntro from "./QuestionnaireIntro.vue";
-import QuestionnaireQuestion from "./QuestionnaireQuestion.vue";
-
-const questionnaire = ref([]);
-const questions = ref([]);
+const questionnaire = ref({})
+const question = ref({})
+const loading = ref(true)
 
 onMounted(async () => {
     try {
-        const response = await axios.get('/api/questionnaire')
-
-        questionnaire.value = response.data.questionnaire
-        questions.value = response.data.questions
+        const res = await fetch('/api/questionnaire')
+        questionnaire.value = await res.json()
     } catch (error) {
-        console.error('Error fetching data:', error)
+        console.error('Failed to fetch questionnaire:', error)
+    } finally {
+        loading.value = false
     }
 })
 </script>
 
 <template>
+    <div>{{ questionnaire.name }}</div>
+    <div>{{ questionnaire.description }}</div>
+    <br>
     <div>
-        <QuestionnaireIntro />
-        <QuestionnaireQuestion />
-        <div>{{ questionnaire.description }}</div>
-        <div>
-            <h3 class="mb-4 mt-6 font-bold">Question ...</h3>
-            <p class="mb-2">This will be the question name. </p>
-            <p>This will be the question options. </p>
-        </div>
-        <div>
-            <h3 class="mb-4 mt-6 font-bold">Question 60</h3>
-            <p class="mb-2">This will be the question name. </p>
-            <p>This will be the question options. </p>
-        </div>
-        <div class="mt-6">
-            <p>This is where the paginator will go, which will split the form into pages containing five questions. </p>
-        </div>
+        <p>Questions</p>
+        <ul>
+            <li v-for="q in questionnaire.questions" :key="q.id">{{ q.question_text }}</li>
+        </ul>
     </div>
 </template>
-
