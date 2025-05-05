@@ -13,7 +13,7 @@ class ResponseSet extends Model
     use hasfactory;
     protected $guarded = [];
 
-    public function options(): hasMany
+    public function responseOptions(): hasMany
     {
         return $this->hasMany(ResponseOption::class);
     }
