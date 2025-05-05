@@ -39,6 +39,9 @@ class QuestionResource extends Resource
                     ->label('Questionnaire')
                     ->relationship('questionnaire', 'name')
                     ->required(),
+                Select::make('response_set_id')
+                ->label('Response set')
+                ->Relationship('responseSet', 'name'),
                 TextInput::make('question_text')
                     ->label('Name')
                     ->required(),
@@ -55,6 +58,8 @@ class QuestionResource extends Resource
                     ->label('Questionnaire')
                     ->searchable()
                     ->sortable(),
+                TextColumn::make('responseSet.name')
+                    ->label('Response set'),
                 TextColumn::make('domain')
                     ->label('Domain'),
                 TextColumn::make('question_text')
