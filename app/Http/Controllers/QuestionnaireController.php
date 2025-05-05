@@ -10,30 +10,33 @@ class QuestionnaireController extends Controller
 {
     public function show()
     {
-        return response()->json(
-            Questionnaire::with('questions')->findOrFail(1)
-        );
+        $questionnaire = Questionnaire::with([
+            'questions.responseSet.responseOptions'
+        ])->findOrFail(1);
+
+        $questions = $questionnaire->questions->map(function ($question) {
+            $responseOptions = $question->responseSet
+                ? $question->responseSet->responseOptions->sortBy('order')->values()->map(function ($option) {
+                    return [
+                        'id' => $option->id,
+                        'label' => $option->label,
+                        'value' => $option->value,
+                    ];
+                })->values()
+                : [];
+
+            return [
+                'id' => $question->id,
+                'question_text' => $question->question_text,
+                'response_options' => $responseOptions,
+            ];
+        });
+
+        return response()->json([
+            'id' => $questionnaire->id,
+            'name' => $questionnaire->name,
+            'description' => $questionnaire->description,
+            'questions' => $questions,
+        ]);
     }
-//    public function show($id)
-//    {
-//        $questionnaire = Questionnaire::with('questions')->findOrFail($id);
-//
-//        return response()->json([
-//            'questionnaires' => [
-//                'id' => $questionnaire->id,
-//                'title' => $questionnaire->name,
-//                'description' => $questionnaire->description,
-//                'type' => $questionnaire->type,
-//            ],
-//            'questions' => $questionnaire->questions->map(function ($q) {
-//                return [
-//                    'id' => $q->id,
-//                    'question' => $q->question_text,
-//                    'options' => json_decode($q->options),
-//                ];
-//            }),
-//        ]);
-//    }
-
-
 }
