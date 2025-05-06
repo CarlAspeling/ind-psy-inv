@@ -3,7 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 
 const questionnaire = ref({})
 const currentPage = ref(1)
-const perPage = 3
+const perPage = 5
 const loading = ref(true)
 const responses = ref({})
 
@@ -49,43 +49,40 @@ const saveResponse = async (questionId, responseOptionId) => {
 
 <template>
     <div v-if="loading">Loading...</div>
-    <div v-else>
-        <h2>{{ questionnaire.name }}</h2>
-        <p>{{ questionnaire.description }}</p>
+    <div v-else class="flex flex-col">
+        <h2 class="text-xl flex font-bold mb-2 justify-center">{{ questionnaire.name }}</h2>
+        <p class="mb-4 flex justify-center italic">{{ questionnaire.description }}</p>
 
-        <div v-for="question in paginatedQuestions" :key="question.id" class="question">
-            <p>{{ question.question_text }}</p>
-            <div v-for="option in question.response_options" :key="option.id">
-                <label>
-                    <input
-                        type="radio"
-                        :name="'question-' + question.id"
-                        :value="option.id"
-                        v-model="responses[question.id]"
-                        @change="saveResponse(question.id, option.id)"
-                    />
-                    {{ option.label }}
-                </label>
+        <div class="flex-1 overflow-auto">
+            <div v-for="(question, index) in paginatedQuestions" :key="question.id" :class="['mb-12 p-1 rounded-lg', index % 2 === 0 ? 'bg-gray-100' : 'bg-white']">
+                <p class="pt-4 mb-4 underline flex justify-center">{{ question.question_text }}</p>
+
+                <div class="flex justify-between gap-4 w-full">
+                    <label
+                        v-for="option in question.response_options"
+                        :key="option.id"
+                        class="flex-1 flex flex-col items-center text-center"
+                    >
+                        <input
+                            type="radio"
+                            :name="'question-' + question.id"
+                            :value="option.id"
+                            v-model="responses[question.id]"
+                            @change="saveResponse(question.id, option.id)"
+                            class="mb-2"
+                        />
+                        <span>{{ option.label }}</span>
+                    </label>
+                </div>
             </div>
         </div>
 
-        <div class="pagination">
-            <button @click="currentPage--" :disabled="currentPage === 1">Previous</button>
+        <div class="mt-6 flex items-center gap-4 justify-center">
+            <button v-show="currentPage > 1" @click="currentPage--">Previous</button>
             <span>Page {{ currentPage }} of {{ totalPages }}</span>
-            <button @click="currentPage++" :disabled="currentPage === totalPages">Next</button>
+            <button v-show="currentPage < totalPages" @click="currentPage++">Next</button>
         </div>
+
     </div>
 </template>
 
-<style scoped>
-.question {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-.pagination {
-    margin-top: 2rem;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
-</style>
