@@ -21,17 +21,18 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Questionnaire::factory()->create([
-            'name' => 'Test questionnaire',
-            'description' => 'This is a test questionnaire',
+            'name' => 'RIASEC Career Interest Inventory',
+            'description' => 'This inventory is designed to help you identify your career interests.',
             'type' => 'Test',
         ]);
 
         $this->call([
+            DomainSeeder::class,
             QuestionSeeder::class,
             ResponseSetSeeder::class,
             ResponseOptionSeeder::class,
-            QuestionnaireAttemptSeeder::class,
-            ResponseSeeder::class,
+            QuestionnaireAttemptSeeder::class, ## to note that not currently in use, but keeping for later
+            ResponseSeeder::class
         ]);
     }
 }
