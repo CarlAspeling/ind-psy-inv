@@ -15,40 +15,40 @@ class QuestionSeeder extends Seeder
     {
         $questions = [
             [
+                'domain_id' => 1,
                 'questionnaire_id' => 1,
                 'response_set_id' => 1,
                 'question_text' => 'I like doing things with my hands',
-                'domain' => 'Realistic',
             ],
             [
+                'domain_id' => 2,
                 'questionnaire_id' => 1,
                 'response_set_id' => 1,
                 'question_text' => 'I like researching things',
-                'domain' => 'Investigative',
             ],
             [
+                'domain_id' => 3,
                 'questionnaire_id' => 1,
                 'response_set_id' => 1,
                 'question_text' => 'I like painting',
-                'domain' => 'Artistic',
             ],
             [
+                'domain_id' => 4,
                 'questionnaire_id' => 1,
                 'response_set_id' => 1,
                 'question_text' => 'I like helping people',
-                'domain' => 'Social',
             ],
             [
+                'domain_id' => 5,
                 'questionnaire_id' => 1,
                 'response_set_id' => 1,
                 'question_text' => 'I like selling things',
-                'domain' => 'Enterprising',
             ],
             [
+                'domain_id' => 6,
                 'questionnaire_id' => 1,
                 'response_set_id' => 1,
                 'question_text' => 'I like predictability',
-                'domain' => 'Conventional',
             ]
         ];
 
