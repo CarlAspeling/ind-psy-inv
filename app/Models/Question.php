@@ -31,8 +31,9 @@ class Question extends Model
     {
         return $this->belongsTo(ResponseSet::class);
     }
-//    public function options(): HasMany
-//    {
-//        return $this->hasMany(Option::class);
-//    }
+
+    public function domain(): BelongsTo
+    {
+        return $this->belongsTo(Domain::class);
+    }
 }
