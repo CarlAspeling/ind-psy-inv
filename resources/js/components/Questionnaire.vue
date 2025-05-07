@@ -51,7 +51,7 @@ const saveResponse = async (questionId, responseOptionId) => {
     <div v-if="loading">Loading...</div>
     <div v-else class="flex flex-col">
         <h2 class="text-xl flex font-bold mb-2 justify-center">{{ questionnaire.name }}</h2>
-        <p class="mb-4 flex justify-center italic">{{ questionnaire.description }}</p>
+        <p class="mb-4 flex text-center italic">{{ questionnaire.description }}</p>
 
         <div class="flex-1 overflow-auto">
             <div v-for="(question, index) in paginatedQuestions" :key="question.id" :class="['mb-12 p-1 rounded-lg', index % 2 === 0 ? 'bg-gray-100' : 'bg-white']">
