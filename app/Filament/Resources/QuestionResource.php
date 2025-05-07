@@ -6,6 +6,7 @@ use App\Filament\Resources\QuestionResource\Pages;
 use App\Filament\Resources\QuestionResource\RelationManagers;
 use App\Filament\Resources\ResponsesRelationManagerResource\RelationManagers\ResponsesRelationManager;
 use App\Models\Question;
+use Faker\Provider\Text;
 use Filament\Forms;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
@@ -35,6 +36,10 @@ class QuestionResource extends Resource
     {
         return $form
             ->schema([
+                Select::make('domain_id')
+                    ->label('Domain')
+                    ->relationship('domain', 'name')
+                    ->required(),
                 Select::make('questionnaire_id')
                     ->label('Questionnaire')
                     ->relationship('questionnaire', 'name')
@@ -45,8 +50,6 @@ class QuestionResource extends Resource
                 TextInput::make('question_text')
                     ->label('Name')
                     ->required(),
-                TextInput::make('domain')
-                    ->label('Domain'),
             ]);
     }
 
@@ -54,14 +57,16 @@ class QuestionResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('domain.name')
+                    ->label('Domain')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('questionnaire.name')
                     ->label('Questionnaire')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('responseSet.name')
                     ->label('Response set'),
-                TextColumn::make('domain')
-                    ->label('Domain'),
                 TextColumn::make('question_text')
                     ->label('Question'),
             ])
@@ -81,13 +86,6 @@ class QuestionResource extends Resource
                     RestoreBulkAction::make(),
                 ]),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            ResponsesRelationManager::class,
-        ];
     }
 
     public static function getPages(): array
