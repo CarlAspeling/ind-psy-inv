@@ -36,9 +36,12 @@ class QuestionnaireResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name'),
-                TextInput::make('description'),
-                TextInput::make('type'),
+                TextInput::make('name')
+                    ->required(),
+                TextInput::make('description')
+                    ->required(),
+                TextInput::make('type')
+                    ->required(),
             ]);
     }
 
@@ -47,11 +50,13 @@ class QuestionnaireResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name'),
-                TextColumn::make('description'),
+                TextColumn::make('description')
+                    ->limit(50),
                 TextColumn::make('type'),
                 TextColumn::make('questions_count')
                     ->label('Questions')
-                    ->counts('questions'),
+                    ->counts('questions')
+                    ->alignCenter(),
             ])
             ->filters([
                 TrashedFilter::make('trashed')
