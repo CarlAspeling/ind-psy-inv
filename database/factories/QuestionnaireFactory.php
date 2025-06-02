@@ -17,6 +17,7 @@ class QuestionnaireFactory extends Factory
     public function definition(): array
     {
         return [
+            'id' => 1,
             'name' => fake()->name,
             'description' => fake()->sentence(10),
             'type' => fake()->word(),

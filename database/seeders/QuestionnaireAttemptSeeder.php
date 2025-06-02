@@ -14,6 +14,7 @@ class QuestionnaireAttemptSeeder extends Seeder
     public function run(): void
     {
         $questionnaireAttempts = [
+            'id' => 1,
             'questionnaire_id' => 1,
         ];
 

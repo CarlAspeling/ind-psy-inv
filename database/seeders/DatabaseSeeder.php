@@ -17,19 +17,20 @@ class DatabaseSeeder extends Seeder
     {
         User::factory()->create([
             'name' => 'Test User',
-            'email' => 'test@example.com',
+            'email' => 'test@example.com'
         ]);
 
         Questionnaire::factory()->create([
+            'id' => 1,
             'name' => 'RIASEC Career Interest Inventory',
             'description' => 'This inventory is designed to help you identify your career interests.',
-            'type' => 'Test',
+            'type' => 'Career Interest Inventory'
         ]);
 
         $this->call([
             DomainSeeder::class,
-            QuestionSeeder::class,
             ResponseSetSeeder::class,
+            QuestionSeeder::class,
             ResponseOptionSeeder::class,
             QuestionnaireAttemptSeeder::class, ## to note that not currently in use, but keeping for later
             ResponseSeeder::class

@@ -14,7 +14,8 @@ class ResponseSetSeeder extends Seeder
     public function run(): void
     {
         $responseSets = [
-            'name' => 'Response Set 1',
+            'id' => 1,
+            'name' => 'Likert Scale (5-item)'
         ];
 
         ResponseSet::create($responseSets);

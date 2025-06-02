@@ -16,27 +16,33 @@ class DomainSeeder extends Seeder
         $domains = [
             [
                 'id' => 1,
-                'name' => 'Realistic'
+                'name' => 'Realistic',
+                'code' => 'R'
             ],
             [
                 'id' => 2,
-                'name' => 'Investigative'
+                'name' => 'Investigative',
+                'code' => 'I'
             ],
             [
                 'id' => 3,
-                'name' => 'Artistic'
+                'name' => 'Artistic',
+                'code' => 'A'
             ],
             [
                 'id' => 4,
-                'name' => 'Social'
+                'name' => 'Social',
+                'code' => 'S'
             ],
             [
                 'id' => 5,
-                'name' => 'Enterprising'
+                'name' => 'Enterprising',
+                'code' => 'E'
             ],
             [
                 'id' => 6,
-                'name' => 'Conventional'
+                'name' => 'Conventional',
+                'code' => 'C'
             ],
         ];
 

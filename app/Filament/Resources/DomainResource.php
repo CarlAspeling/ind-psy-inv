@@ -33,6 +33,8 @@ class DomainResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required(),
+                Forms\Components\TextInput::make('code')
+                    ->required(),
             ]);
     }
 
@@ -43,6 +45,7 @@ class DomainResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('code'),
                 Tables\Columns\TextColumn::make('questions_count')
                     ->label('Questions')
                     ->counts('questions')
