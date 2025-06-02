@@ -19,12 +19,12 @@ class Response extends Model
         return $this->belongsTo(Question::class);
     }
 
-    public function attempt(): BelongsTo
+    public function questionnaireAttempt(): BelongsTo
     {
         return $this->belongsTo(QuestionnaireAttempt::class);
     }
 
-    public function option(): BelongsTo
+    public function responseOption(): BelongsTo
     {
         return $this->belongsTo(ResponseOption::class);
     }

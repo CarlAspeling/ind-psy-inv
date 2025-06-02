@@ -36,13 +36,17 @@ class ResponseOptionResource extends Resource
                     ->required()
                     ->label('Response set')
                     ->relationship('responseSet', 'name'),
-                TextInput::make('value')
-                    ->required(),
                 TextInput::make('label')
                     ->required(),
+                TextInput::make('value')
+                    ->required()
+                    ->numeric()
+                    ->helperText('Must be a numeric value'),
                 TextInput::make('order')
                     ->label('Order')
-                    ->required(),
+                    ->required()
+                    ->numeric()
+                    ->helperText('Must be a numeric value'),
             ]);
     }
 
@@ -54,8 +58,8 @@ class ResponseOptionResource extends Resource
                 ->label('Response set')
                 ->searchable()
                 ->sortable(),
-                TextColumn::make('value'),
                 TextColumn::make('label'),
+                TextColumn::make('value'),
                 TextColumn::make('order'),
             ])
             ->filters([
