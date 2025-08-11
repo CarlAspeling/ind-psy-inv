@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Clusters\QuestionnaireSystem;
 use App\Filament\Resources\QuestionResource\Pages;
 use App\Filament\Resources\ResponsesRelationManagerResource\RelationManagers\ResponsesRelationManager;
 use App\Models\Question;
@@ -29,7 +30,9 @@ class QuestionResource extends Resource
 {
     protected static ?string $model = Question::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-question-mark-circle';
+
+    protected static ?string $navigationGroup = 'Questionnaire System';
 
     public static function form(Form $form): Form
     {

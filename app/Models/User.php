@@ -23,6 +23,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'email_verified',
     ];
 
     /**
@@ -44,8 +46,53 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
+            'email_verified' => 'boolean',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Check if user is an admin
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    /**
+     * Check if user is a regular user
+     */
+    public function isUser(): bool
+    {
+        return $this->role === 'user';
+    }
+
+    /**
+     * Get user's questionnaire attempts
+     */
+    public function questionnaireAttempts(): HasMany
+    {
+        return $this->hasMany(QuestionnaireAttempt::class);
+    }
+
+    /**
+     * Automatically sync email_verified_at when email_verified changes
+     */
+    protected static function boot()
+    {
+        parent::boot();
+        
+        static::saving(function ($user) {
+            // If email_verified is being set to true and email_verified_at is null, set it to now
+            if ($user->email_verified && is_null($user->email_verified_at)) {
+                $user->email_verified_at = now();
+            }
+            
+            // If email_verified is being set to false, clear email_verified_at
+            if (!$user->email_verified) {
+                $user->email_verified_at = null;
+            }
+        });
     }
 
 //    public function questionnaires(): BelongsToMany

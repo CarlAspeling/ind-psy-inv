@@ -2,10 +2,12 @@
 
 namespace App\Providers\Filament;
 
+use App\Http\Middleware\FilamentAdminMiddleware;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -53,6 +55,17 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                FilamentAdminMiddleware::class,
+            ])
+            ->authGuard('web')
+            ->passwordReset()
+            ->profile()
+            ->navigationItems([
+                NavigationItem::make('User Dashboard')
+                    ->url('/dashboard')
+                    ->icon('heroicon-o-user')
+                    ->group('Navigation')
+                    ->sort(1),
             ]);
     }
 }

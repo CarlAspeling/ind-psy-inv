@@ -28,7 +28,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
+            AdminUserSeeder::class,
             DomainSeeder::class,
+            TraitFeedbackTemplateSeeder::class,
             ResponseSetSeeder::class,
             QuestionSeeder::class,
             ResponseOptionSeeder::class,

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Clusters\QuestionnaireSystem;
 use App\Filament\Resources\ResponseOptionsResource\Pages;
 use App\Models\ResponseOption;
 use Filament\Forms;
@@ -26,7 +27,9 @@ class ResponseOptionResource extends Resource
 {
     protected static ?string $model = ResponseOption::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-check-circle';
+
+    protected static ?string $navigationGroup = 'Questionnaire System';
 
     public static function form(Form $form): Form
     {
@@ -55,9 +58,9 @@ class ResponseOptionResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('ResponseSet.name')
-                ->label('Response set')
-                ->searchable()
-                ->sortable(),
+                    ->label('Response set')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('label'),
                 TextColumn::make('value'),
                 TextColumn::make('order'),

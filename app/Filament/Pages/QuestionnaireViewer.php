@@ -6,6 +6,8 @@ use Filament\Pages\Page;
 
 class QuestionnaireViewer extends Page
 {
+    protected static ?string $navigationGroup = 'Questionnaire Viewer';
+
     protected static ?string $navigationIcon = 'heroicon-o-eye';
     protected static string $view = 'filament.pages.questionnaire-viewer';
 }

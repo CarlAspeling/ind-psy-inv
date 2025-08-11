@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Clusters\QuestionnaireSystem;
 use App\Filament\Resources\QuestionnaireResource\Pages;
 use App\Filament\Resources\QuestionnaireResource\Pages\CreateQuestionnaire;
 use App\Filament\Resources\QuestionnaireResource\Pages\EditQuestionnaire;
@@ -30,7 +31,9 @@ class QuestionnaireResource extends Resource
 {
     protected static ?string $model = Questionnaire::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+
+    protected static ?string $navigationGroup = 'Questionnaire System';
 
     public static function form(Form $form): Form
     {

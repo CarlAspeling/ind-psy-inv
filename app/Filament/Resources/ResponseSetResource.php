@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Clusters\QuestionnaireSystem;
 use App\Filament\Resources\ResponseSetResource\Pages;
 use App\Filament\Resources\ResponseSetResource\Pages\CreateResponseSet;
 use App\Filament\Resources\ResponseSetResource\Pages\EditResponseSet;
@@ -28,7 +29,9 @@ class ResponseSetResource extends Resource
 {
     protected static ?string $model = ResponseSet::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
+
+    protected static ?string $navigationGroup = 'Questionnaire System';
 
     public static function form(Form $form): Form
     {
