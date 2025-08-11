@@ -19,6 +19,11 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return true;
+    }
+
     protected $fillable = [
         'name',
         'email',
@@ -81,13 +86,13 @@ class User extends Authenticatable
     protected static function boot()
     {
         parent::boot();
-        
+
         static::saving(function ($user) {
             // If email_verified is being set to true and email_verified_at is null, set it to now
             if ($user->email_verified && is_null($user->email_verified_at)) {
                 $user->email_verified_at = now();
             }
-            
+
             // If email_verified is being set to false, clear email_verified_at
             if (!$user->email_verified) {
                 $user->email_verified_at = null;
