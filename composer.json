@@ -6,6 +6,8 @@
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
+        "fakerphp/faker": "^1.23",
+        "mockery/mockery": "^1.6",
         "php": "^8.2",
         "blade-ui-kit/blade-heroicons": "^2.6",
         "filament/filament": "^3.3",
