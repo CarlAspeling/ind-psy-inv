@@ -14,17 +14,28 @@
                 </div>
             </div>
         @endif
-        <h1 class="text-2xl font-bold mb-4">Your Career Interest Feedback</h1>
+        <!-- DISCLAIMER -->
+        <div class="bg-yellow-50 border border-yellow-300 rounded-lg p-4 mb-6">
+            <h2 class="text-lg font-semibold text-yellow-900 mb-2">⚠️ Educational Results Only</h2>
+            <p class="text-yellow-800 text-sm">
+                <strong>These results are for educational purposes only.</strong> This is not professional career counseling, 
+                psychological assessment, or diagnostic evaluation. Do not make important life decisions based on these results. 
+                Consult qualified professionals for career guidance.
+            </p>
+        </div>
+        
+        <h1 class="text-2xl font-bold mb-4">Your Learning Results</h1>
 
-        <p class="mb-6">Based on your results, your code is: <strong>{{ $code }}</strong></p>
+        <p class="mb-6">Based on your responses, your educational code is: <strong>{{ $code }}</strong></p>
 
         @foreach(['primary', 'supporting', 'modulating'] as $role)
             @php $template = $feedback[$role] ?? null; @endphp
 
             @if ($template)
                 <div class="mb-6 p-4 border rounded-lg">
-                    <h2 class="text-xl font-semibold capitalize">{{ $role }} trait ({{ $template->domain->name }})</h2>
+                    <h2 class="text-xl font-semibold capitalize">{{ $role }} interest type ({{ $template->domain->name }})</h2>
                     <p class="mt-2 text-gray-700">{{ $template->description }}</p>
+                    <p class="mt-2 text-xs text-gray-500 italic">Educational information only - not professional assessment</p>
                 </div>
             @endif
         @endforeach
@@ -32,13 +43,13 @@
         <!-- Action buttons -->
         <div class="mt-8 text-center border-t pt-6">
             <p class="text-sm text-gray-600 mb-4">
-                Assessment completed on {{ $attempt->completed_at->format('M j, Y g:i A') }}
+                Learning exercise completed on {{ $attempt->completed_at->format('M j, Y g:i A') }}
             </p>
             
             <div class="space-x-4">
                 <a href="{{ route('questionnaire.start', ['questionnaire' => 1]) }}" 
                    class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition duration-200">
-                    Take Assessment Again
+                    Try Learning Tool Again
                 </a>
                 @auth
                     <a href="{{ route('dashboard') }}" 
@@ -54,7 +65,8 @@
             </div>
             
             <p class="text-xs text-gray-500 mt-4">
-                Your results are based on the RIASEC model developed by John Holland
+                This educational exercise is based on the RIASEC model developed by John Holland. 
+                For educational purposes only - not professional assessment.
             </p>
         </div>
     </div>

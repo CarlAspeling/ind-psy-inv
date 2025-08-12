@@ -1,10 +1,12 @@
-# RIASEC Career Interest Assessment Platform
+# RIASEC Interest Exploration Tool
 
-A modern, full-stack Laravel application for conducting professional RIASEC (Holland Code) career interest assessments. This platform provides users with an interactive questionnaire experience and generates personalized feedback based on their career personality type across six domains: Realistic, Investigative, Artistic, Social, Enterprising, and Conventional.
+**EDUCATIONAL TOOL ONLY - NOT FOR PROFESSIONAL ASSESSMENT**
 
-## 🚀 **MVP Status: Production Ready**
+A modern, full-stack Laravel application for educational exploration of the RIASEC (Holland Code) interest model. This platform provides users with an interactive learning experience about interest types across six domains: Realistic, Investigative, Artistic, Social, Enterprising, and Conventional. **This is strictly an educational tool and should not be used for career counseling or professional assessment purposes.**
 
-This application is a complete, functional MVP ready for immediate deployment and real-world use.
+## 🚀 **Status: Educational Learning Tool**
+
+This application is a complete educational tool for learning about the RIASEC model. **It is not intended for professional use, career counseling, or psychological assessment.**
 
 ## 🎯 **Key Features**
 
@@ -19,12 +21,12 @@ This application is a complete, functional MVP ready for immediate deployment an
 - **Professional UI**: Clean, intuitive design with loading states and user feedback
 - **Guest Access**: Full functionality available without registration for one-time users
 
-### **Assessment Capabilities**  
-- **RIASEC Model Implementation**: Holland's proven career interest framework
-- **Domain-Based Scoring**: Questions mapped to six personality domains (R-I-A-S-E-C)
-- **Automated Results Calculation**: Generates three-letter RIASEC codes (e.g., ASE, IRC)
-- **Personalized Feedback**: Role-based feedback for primary, supporting, and modulating traits
-- **Complete Coverage**: 18 feedback templates covering all domain-role combinations
+### **Educational Learning Features**  
+- **RIASEC Model Learning**: Educational exploration of Holland's interest framework
+- **Domain-Based Learning**: Questions mapped to six interest domains (R-I-A-S-E-C) for educational purposes
+- **Educational Results**: Generates three-letter codes for learning purposes only (e.g., ASE, IRC)
+- **Learning Feedback**: Educational information about interest types and their characteristics
+- **Complete Educational Coverage**: 18 learning templates covering all domain-role combinations
 
 ### **Technical Excellence**
 - **RESTful API**: Clean endpoints for questionnaire data and response handling
@@ -237,7 +239,7 @@ attempts (UUID sessions) ──→ responses ──→ response_options
 ## 🗃 **Database Content**
 
 The application comes pre-seeded with:
-- **1 Complete Questionnaire**: RIASEC Career Interest Inventory
+- **1 Complete Learning Tool**: RIASEC Interest Exploration Tool
 - **6 Assessment Questions**: Mapped to different RIASEC domains
 - **6 RIASEC Domains**: R (Realistic), I (Investigative), A (Artistic), S (Social), E (Enterprising), C (Conventional)
 - **5 Response Options**: 5-point Likert scale (Strongly Disagree → Strongly Agree)

@@ -32,7 +32,11 @@ const props = defineProps({
         </div>
 
         <div class="mt-4 p-3 bg-blue-100 rounded text-sm text-blue-800">
-            <p><strong>Instructions:</strong> Answer each question based on your genuine interests and preferences. Your responses are automatically saved as you progress through the assessment.</p>
+            <p><strong>Instructions:</strong> Reflect on each question based on your interests and preferences. Your responses are automatically saved as you progress through this learning exercise.</p>
+        </div>
+        
+        <div class="mt-3 p-2 bg-yellow-50 border border-yellow-200 rounded text-xs text-yellow-800">
+            <p><strong>Educational Tool Only:</strong> This is for learning purposes - not professional assessment or career guidance.</p>
         </div>
     </div>
 </template>

@@ -91,7 +91,7 @@ const saveResponse = async (questionId, responseOptionId) => {
             // Handle specific error types
             if (response.status === 410) {
                 // Session expired
-                error.value = 'Your assessment session has expired. Redirecting to start a new one...'
+                error.value = 'Your learning session has expired. Redirecting to start a new one...'
                 setTimeout(() => {
                     window.location.href = props.initialData.routes.startNew || '/'
                 }, 3000)
@@ -144,7 +144,7 @@ const completeQuestionnaire = async () => {
 
     try {
         // Show loading message
-        const loadingMessage = 'Completing assessment and calculating your results...'
+        const loadingMessage = 'Completing learning exercise and calculating your results...'
         
         // Create form with loading indicator
         const overlay = document.createElement('div')
@@ -174,7 +174,7 @@ const completeQuestionnaire = async () => {
         
     } catch (err) {
         console.error('Failed to complete questionnaire:', err)
-        error.value = 'Failed to complete the assessment. Please try again.'
+        error.value = 'Failed to complete the learning exercise. Please try again.'
         saving.value = false
         
         // Remove loading overlay if it exists
@@ -221,8 +221,8 @@ const previousPage = () => {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
             </div>
-            <h2 class="text-2xl font-bold text-green-800 mb-2">Assessment Completed!</h2>
-            <p class="text-green-700 mb-6">Thank you for completing the RIASEC career interest assessment.</p>
+            <h2 class="text-2xl font-bold text-green-800 mb-2">Learning Exercise Completed!</h2>
+            <p class="text-green-700 mb-6">Thank you for completing the RIASEC interest exploration tool.</p>
             <a :href="initialData.routes.showFeedback" 
                class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200">
                 View Your Results
@@ -325,11 +325,11 @@ const previousPage = () => {
                     <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
                     Completing...
                 </span>
-                <span v-else>Complete Assessment</span>
+                <span v-else>Complete Learning Exercise</span>
             </button>
             
             <p v-if="!allQuestionsAnswered" class="text-sm text-gray-500 mt-2">
-                Please answer all questions to complete the assessment
+                Please answer all questions to complete the learning exercise
             </p>
         </div>
     </div>

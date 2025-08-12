@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
 
         Questionnaire::factory()->create([
             'id' => 1,
-            'name' => 'RIASEC Career Interest Inventory',
-            'description' => 'This inventory is designed to help you identify your career interests.',
-            'type' => 'Career Interest Inventory'
+            'name' => 'RIASEC Interest Exploration Tool',
+            'description' => 'This educational tool helps you learn about different interest types and explore the RIASEC model.',
+            'type' => 'Educational Learning Tool'
         ]);
 
         $this->call([

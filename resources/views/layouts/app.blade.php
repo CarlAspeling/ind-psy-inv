@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover your career interests with our RIASEC Career Interest Inventory. Get personalized feedback based on Holland's career personality types.">
-    <meta name="keywords" content="RIASEC, career assessment, personality test, career interest, Holland code">
-    <meta name="author" content="Interest Inventory V1.0">
-    <title>@yield('title', 'RIASEC Career Assessment - Interest Inventory V1.0')</title>
+    <meta name="description" content="Educational RIASEC-style interest exploration tool. For entertainment and learning purposes only - not for professional career guidance.">
+    <meta name="keywords" content="RIASEC, interest exploration, educational tool, Holland model learning, career education">
+    <meta name="author" content="Interest Explorer V1.0">
+    <title>@yield('title', 'RIASEC Interest Explorer - Educational Tool')</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,7 +21,7 @@
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
                     <a href="/" class="text-2xl font-bold text-gray-900 hover:text-gray-700">
-                        Interest Inventory V1.0
+                        Interest Explorer V1.0
                     </a>
                 </div>
                 <div class="flex items-center space-x-4">
@@ -56,7 +56,7 @@
 
     <!-- Optional: Footer -->
     <footer class="bg-white text-center p-4 border-t text-sm text-gray-600">
-        &copy; {{ date('Y') }} Interest Inventory V1.0
+        &copy; {{ date('Y') }} Interest Explorer V1.0 - Educational Tool Only
     </footer>
 </div>
 
